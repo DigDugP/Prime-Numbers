@@ -1,4 +1,7 @@
-/* playing around with recursion - go to: https://github.com/DigDugP/Prime-Numbers/blob/master/Prime_Page.html to try on a page */
+/* 
+Playing around with recursion - To see in action go to: 
+http://htmlpreview.github.com/?https://github.com/DigDugP/Prime-Numbers/blob/master/Prime_Page.html 
+*/
 
 function nextprime(currentprime){
 	currentprime++;
