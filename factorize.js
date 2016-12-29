@@ -1,3 +1,9 @@
+/* 
+Prime factors of number - To see in action go to: 
+http://htmlpreview.github.com/?https://github.com/DigDugP/Prime-Numbers/blob/master/primes.html 
+*/
+
+
 function nextprime(currentprime){
 	currentprime++;
 	for	(i = 2; i < currentprime; i++){
