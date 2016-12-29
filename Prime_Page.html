@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Prime Numbers</title>
+	<head>
+		<meta charset="UTF-8">
+		<title>Prime Numbers</title>
 
-	<style>
-		div.columns {
-			 width: 1040px; 
-		} 
-		div.columns h1 { 
-			text-align: center
-		}
-		div.columns h3 { 
-			text-align: center
-		}
-		div.nextprimes { 
-			width: 400px; 
-			background-color: lightgray; 
-			float: left; 
-			padding-left: 10px
-		}
-		div.factorization { 
-			width: 600px; 
-			background-color: lightgray; 
-			float: left; 
-			padding-left: 10px; 
-			margin-left: 20px
-		}
-	</style>
-
-	<script type="text/javascript">
-
-		function nextprime(currentprime){
-			currentprime++;
-			for	(i = 2; i < currentprime; i++){
-				if (currentprime % i == 0){
-					return nextprime(currentprime);
-				}
+		<style>
+			div.columns {
+				width: 1040px; 
+			} 
+			div.columns h1 { 
+				text-align: center
 			}
-			return currentprime;
-		}
+			div.columns h3 { 
+				text-align: center
+			}
+			div.nextprimes { 
+				width: 400px; 
+				background-color: lightgray; 
+				float: left; 
+				padding-left: 10px
+			}
+			div.factorization { 
+				width: 600px; 
+				background-color: lightgray; 
+				float: left; 
+				padding-left: 10px; 
+				margin-left: 20px
+			}
+		</style>
 
-		function shownextprime(innumber){
-			var answerarea = document.getElementById('nextprimeanswer');
-			var inputbox = document.getElementById('inputnumber');
-			var subsequentprime = nextprime(innumber);
-			answerarea.innerHTML += "Next Prime: " + subsequentprime + "</br>";
-			inputbox.value = subsequentprime;
-		}
+		<script type="text/javascript">
 
-		function factorize(innumber){
-			var answerarea = document.getElementById('factoranswer');
-			var currentprime = 2;
-			answerarea.innerHTML += "Prime factorization for " + innumber + ": ";
-			while (innumber > 1){
-				if (innumber % currentprime == 0){
-					answerarea.innerHTML += currentprime;
-					innumber = innumber / currentprime;
-					if (innumber > 1){
-						answerarea.innerHTML += ", ";
+			function nextprime(currentprime){
+				currentprime++;
+				for	(i = 2; i < currentprime; i++){
+					if (currentprime % i == 0){
+						return nextprime(currentprime);
 					}
-				} else {
-					currentprime = nextprime(currentprime);
 				}
+				return currentprime;
 			}
-			answerarea.innerHTML += "</br>"
-		}
 
-	</script>
-</head>
+			function shownextprime(innumber){
+				var answerarea = document.getElementById('nextprimeanswer');
+				var inputbox = document.getElementById('inputnumber');
+				var subsequentprime = nextprime(innumber);
+				answerarea.innerHTML += "Next Prime: " + subsequentprime + "</br>";
+				inputbox.value = subsequentprime;
+			}
 
-<body>
-	<div class="columns">
-		<h1>Prime Numbers</h1>
-		<div class="nextprimes">
-			<h3>Next prime</h3>
-			<span>Enter number:</span>
-			<input type="number" id="inputnumber" value="1" 
-				onkeyup = "if (event.keyCode == 13) shownextprime(this.value)" >
-			<button type="button" 
-				onclick="shownextprime(document.getElementById('inputnumber').value)">
-				Next Prime</button>
-			<hr>
-			<div id="nextprimeanswer"></div>
+			function factorize(innumber){
+				var answerarea = document.getElementById('factoranswer');
+				var currentprime = 2;
+				answerarea.innerHTML += "Prime factorization for " + innumber + ": ";
+				while (innumber > 1){
+					if (innumber % currentprime == 0){
+						answerarea.innerHTML += currentprime;
+						innumber = innumber / currentprime;
+						if (innumber > 1){
+							answerarea.innerHTML += ", ";
+						}
+					} else {
+						currentprime = nextprime(currentprime);
+					}
+				}
+				answerarea.innerHTML += "</br>"
+			}
+
+		</script>
+	</head>
+
+	<body>
+		<div class="columns">
+			<h1>Prime Numbers</h1>
+			<div class="nextprimes">
+				<h3>Next prime</h3>
+				<span>Enter number:</span>
+				<input type="number" id="inputnumber" value="1" 
+					onkeyup = "if (event.keyCode == 13) shownextprime(this.value)" >
+				<button type="button" 
+					onclick="shownextprime(document.getElementById('inputnumber').value)">
+					Next Prime</button>
+				<hr>
+				<div id="nextprimeanswer"></div>
+			</div>
+			<div class="factorization">
+				<h3>Prime Factorization</h3>
+				<span>Enter number:</span>
+				<input type="number" id="factornumber" value="2"
+					onkeyup = "if (event.keyCode == 13) factorize(this.value)">
+				<button type="button" 
+					onclick="factorize(document.getElementById('factornumber').value)">
+					Factorize</button>
+				<hr>
+				<div id="factoranswer"></div>
+			</div>
 		</div>
-		<div class="factorization">
-			<h3>Prime Factorization</h3>
-			<span>Enter number:</span>
-			<input type="number" id="factornumber" value="2"
-				onkeyup = "if (event.keyCode == 13) factorize(this.value)">
-			<button type="button" 
-				onclick="factorize(document.getElementById('factornumber').value)">
-				Factorize</button>
-			<hr>
-			<div id="factoranswer"></div>
-		</div>
-	</div>
-</body>
+	</body>
 </html>
