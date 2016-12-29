@@ -1,6 +1,6 @@
 /* 
 Playing around with recursion - To see in action go to: 
-http://htmlpreview.github.com/?https://github.com/DigDugP/Prime-Numbers/blob/master/Prime_Page.html 
+http://htmlpreview.github.com/?https://github.com/DigDugP/Prime-Numbers/blob/master/primes.html 
 */
 
 function nextprime(currentprime){
